@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#nav-container {
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 1366px;
+    height: 200px;
+    background-color: aqua;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.nav-item {
+    float: left;
+    background-color: blue;
+    margin: 10px;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+
+.stats-item {
+    float: left;
+    margin: 10px;
+    background-color: aliceblue;
+    padding: 10px 50px;
+
+}
