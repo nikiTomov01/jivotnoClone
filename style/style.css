@@ -51,9 +51,14 @@
 
 .nav-item {
     float: left;
-    background-color: blue;
+    background-image: linear-gradient(to bottom, rgb(96, 255, 194) , rgb(67, 180, 137));
     margin: 10px;
     padding: 10px 15px;
+    color: white;
+}
+
+.nav-item:hover {
+    cursor: pointer;
 }
 
 #currency-list {
@@ -121,8 +126,9 @@
 
 .tab-title {
     width: 100%;
-    background-image: linear-gradient(to bottom, rgb(159, 255, 218) , rgb(105, 194, 160));
+    background-image: linear-gradient(to bottom, rgb(96, 255, 194) , rgb(67, 180, 137));
     border-radius: 10px 10px 0 0;
+    color: white;
 }
 
 .tab-title h4{
