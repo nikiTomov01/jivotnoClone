@@ -97,7 +97,6 @@
 
 #left-main-container {
     width: 60%;
-    
 }
 
 #character-tab {
@@ -105,6 +104,17 @@
     margin: 0 auto;
     height: 400px;
     background-color: aliceblue;
+    position: relative;
+}
+
+#character {
+    position: absolute;
+    top: 150px;
+    left: 300px;
+}
+
+#character img{
+    width: 25%;
 }
 
 /* left main */
