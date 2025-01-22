@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 /* default classes for alot of elements */
@@ -100,25 +101,27 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: flex-start;
 }
 
 .small-tab {
     width: 45%;
     height: 110px;
+    background-color: aliceblue;
+    border: 1px solid #c0c0c0;
 }
 
 .big-tab {
     width: 95%;
     height: 100px;
-}
-
-#mood-tab {
-    background-color: rgb(163, 143, 52);
+    background-color: aliceblue;
+    border: 1px solid #c0c0c0; 
 }
 
 .tab-title {
     width: 100%;
-    background-color: antiquewhite;
+    background-image: linear-gradient(to bottom, rgb(159, 255, 218) , rgb(105, 194, 160));
     border-radius: 10px 10px 0 0;
 }
 
@@ -126,13 +129,18 @@
     padding: 10px;
 }
 
+.tab-text {
+    background-color: aliceblue;
+}
 
-#int-tab {
-    background-color: cadetblue; 
+.tab-text h5 {
+    margin: 10% 0 0 5%;
+    color: #797979;
 }
 
 #stats-tab {
     width: 95%;
     height: 100px;
     background-color: blue;
+    margin-top: 20px;
 }
