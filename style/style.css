@@ -1,20 +1,15 @@
 * {
     margin: 0;
     padding: 0;
+    border-radius: 10px;
 }
 
 /* default classes for alot of elements */
 
-.border-default {
-    border-radius: 10px;
-    border-style: none;
-}
-
 /* navigation panel */
 
 #nav-panel-container {
-    margin: 0 auto;
-    margin-top: 20px;
+    margin: 20px auto;
     width: 1366px;
     background-color: aqua;
     position: relative;
@@ -60,15 +55,84 @@
     padding: 10px 15px;
 }
 
-#stats-list {
+#currency-list {
     align-self: flex-end;
     margin-right: 15px;
     background-color: aliceblue;
 }
 
-.stats-item {
+.currency-item {
     float: left;
     margin: 10px;
     background-color: aliceblue;
     padding: 0px 50px;
+}
+
+/* main section */
+
+#main-window {
+    width: 1366px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+
+}
+
+/* left main */
+
+#left-main-container {
+    width: 60%;
+    
+}
+
+#character-tab {
+    width: 100%;
+    margin: 0 auto;
+    height: 400px;
+    background-color: aliceblue;
+}
+
+/* right main */
+
+#right-main-container {
+    width: 40%;
+    float: left;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.small-tab {
+    width: 45%;
+    height: 110px;
+}
+
+.big-tab {
+    width: 95%;
+    height: 100px;
+}
+
+#mood-tab {
+    background-color: rgb(163, 143, 52);
+}
+
+.tab-title {
+    width: 100%;
+    background-color: antiquewhite;
+    border-radius: 10px 10px 0 0;
+}
+
+.tab-title h4{
+    padding: 10px;
+}
+
+
+#int-tab {
+    background-color: cadetblue; 
+}
+
+#stats-tab {
+    width: 95%;
+    height: 100px;
+    background-color: blue;
 }

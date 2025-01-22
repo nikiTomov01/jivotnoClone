@@ -8,39 +8,63 @@
 </head>
 <body>
     <nav>
-        <div id="nav-panel-container" class="border-default">
+        <div id="nav-panel-container" class="">
             <div id="login-signup-form">
                 <div id="login-input-fields">
-                    <input class="border-default" type="text" placeholder="E-mail">
-                    <input class="border-default" type="text" placeholder="Password">
+                    <input type="text" placeholder="E-mail">
+                    <input type="text" placeholder="Password">
                 </div>
                 <div id="login-signup-btns">
-                    <button class="border-default" id="login-btn">Login</button>
-                    <button class="border-default" id="signup-btn">Sign up</button>
+                    <button id="login-btn">Login</button>
+                    <button id="signup-btn">Sign up</button>
                 </div>
             </div>
-            <div id="stats-list" class="border-default">
-                <div class="stats-item border-default">Luck: 5</div>
-                <div class="stats-item border-default">Gold: 200</div>
-                <div class="stats-item border-default">Minis: 7</div>
+            <div id="currency-list" class="">
+                <div class="currency-item">Luck: 5</div>
+                <div class="currency-item">Gold: 200</div>
+                <div class="currency-item">Minis: 7</div>
             </div>
             <div id="nav-list">
-                <div class="nav-item border-default"><p>House</p></div>
-                <div class="nav-item border-default"><p>Mall</p></div>
-                <div class="nav-item border-default"><p>Waredrobe</p></div>
-                <div class="nav-item border-default"><p>Forest town</p></div>
-                <div class="nav-item border-default"><p>Duels</p></div>
-                <div class="nav-item border-default"><p>Famous Animals</p></div>
-                <div class="nav-item border-default"><p>Online</p></div>
-                <div class="nav-item border-default"><p>Friends</p></div>
-                <div class="nav-item border-default"><p>Blocked</p></div>
+                <div class="nav-item"><p>House</p></div>
+                <div class="nav-item"><p>Mall</p></div>
+                <div class="nav-item"><p>Waredrobe</p></div>
+                <div class="nav-item"><p>Forest town</p></div>
+                <div class="nav-item"><p>Duels</p></div>
+                <div class="nav-item"><p>Famous Animals</p></div>
+                <div class="nav-item"><p>Online</p></div>
+                <div class="nav-item"><p>Friends</p></div>
+                <div class="nav-item"><p>Blocked</p></div>
             </div>
         </div>
     </nav>
     <main>
         <div id="main-window">
-            <div id="character-tab"></div>
+            <div id="left-main-container">
+                <div id="character-tab"></div>
 
+            </div>
+            <div id="right-main-container">
+                <div id="mood-tab" class="small-tab">
+                    <div class="tab-title">
+                        <h4>Mood</h4>
+                    </div>
+                    <div class="tab-text">
+                        <h5>Great</h5>
+                    </div>
+                </div>
+                <div id="int-tab" class="small-tab"></div>
+                <div id="stats-tab">
+                    <div id="walk-stat" class="stat-item">
+                        <div class="stat-meter">
+                            <span id="walk-meter" class="fill-stat"></span>
+                        </div>
+                        <button><span>🐕‍🦺</span>Go for a walk.</button>
+                    </div>
+                    <div class="stat-item"></div>
+                    <div class="stat-item"></div>
+                    <div class="stat-item"></div>
+                </div>
+            </div>
         </div>
     </main>
 </body>
