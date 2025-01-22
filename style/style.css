@@ -98,6 +98,17 @@
     background-color: aliceblue;
 }
 
+/* left main */
+
+#character-tab {
+    background-image: url(../resources/cozyCottageBackground.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+    border: 1px solid #c0c0c0
+}
+
 /* right main */
 
 #right-main-container {
