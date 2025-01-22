@@ -32,6 +32,19 @@ function dropStats() {
     currHunger--;
     currShower--;
     currHydration--;
+
+    if (currWalk < 0) {
+        currWalk = 0;
+    }
+    if (currHunger < 0) {
+        currHunger = 0;
+    }
+    if (currShower < 0) {
+        currShower = 0;
+    }
+    if (currHydration < 0) {
+        currHydration = 0;
+    }
 }
 
 let addStat = (e) => {
