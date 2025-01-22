@@ -140,6 +140,18 @@
     align-content: flex-start;
 }
 
+#your-message {
+    width: 95%;
+    margin-bottom: 20px;
+    border: 1px solid #c0c0c0;
+    background-image: linear-gradient(to bottom, rgb(96, 255, 194) , rgb(67, 180, 137));
+}
+
+#your-message h4 {
+    padding: 16px;
+    color: white;
+}
+
 .small-tab {
     width: 45%;
     height: 110px;
