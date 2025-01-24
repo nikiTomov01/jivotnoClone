@@ -302,7 +302,8 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    align-content: flex-start;
 }
 
 .waredrobe-item-icon {

@@ -18,9 +18,15 @@ let backgroundInvetory = [];
 const hatSlot = document.getElementById("hat-slot");
 let currHat = "";
 
-
-hatsBtn.addEventListener("click", () => {
-    populateWardrobe(hatsInvetory);
+hatsBtn.addEventListener("click", (e) => {
+    if (e.target.classList[0] === "selected-wardrobe") {
+        return;
+    }
+    else {
+        populateWardrobe(hatsInvetory);
+        e.target.classList.add("selected-wardrobe");
+        console.log(e.target.classList[0]);
+    }
 });
 
 function populateWardrobe(inventory) {
