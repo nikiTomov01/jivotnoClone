@@ -28,6 +28,7 @@
     align-self: flex-end;
     background-color: aliceblue;
     margin-bottom: 10px;
+    border-radius: 0 10px 10px 10px;
 }
 
 #login-input-fields {
@@ -39,6 +40,13 @@
 #login-signup-form input {
     margin: 10px 10px 0px 10px;
     padding: 5px;
+    border: none;
+    background-image: linear-gradient(to bottom, rgb(96, 255, 194) , rgb(67, 180, 137));
+    color: white;
+}
+
+#login-signup-form input:focus {
+    background-image: linear-gradient(to bottom, rgb(155, 240, 255) , rgb(40, 110, 121));
 }
 
 #login-signup-btns {
@@ -47,10 +55,16 @@
 }
 
 #login-signup-form button {
-    padding: 5px 10px 5px;
+    padding: 3px 10px 3px;
     float: left;
     margin: 10px;
     margin-bottom: 0;
+    transition: 0.45s;
+}
+
+#login-signup-form button:hover {
+    background-color: rgb(77, 204, 155);
+    cursor: pointer;
 }
 
 #nav-list {
@@ -228,4 +242,3 @@
     cursor: pointer;
     background-image: linear-gradient(to bottom, rgb(155, 240, 255) , rgb(40, 110, 121));
 }
-
