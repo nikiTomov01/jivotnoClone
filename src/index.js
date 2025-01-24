@@ -79,4 +79,3 @@ walkBtn.addEventListener("click", addStat);
 hungerBtn.addEventListener("click", addStat);
 showerBtn.addEventListener("click", addStat);
 hydrationBtn.addEventListener("click", addStat);
-
