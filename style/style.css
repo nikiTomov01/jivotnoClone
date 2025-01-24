@@ -132,6 +132,11 @@
     width: 25%;
 }
 
+#hat-slot {
+    position: absolute;
+    top: -50px;
+}
+
 /* left main */
 
 #character-tab {
