@@ -69,7 +69,7 @@ function populateWardrobe(inventory) {
 }
 
 async function equipItem(item) {
-    if (hatSlot.getAttribute("src") !== item.src) {
+    if (hatSlot.getAttribute("src") !== item.getAttribute("src")) {
         hatSlot.src = item.src;
         await updateDoc(docRef, {
             hat: 1
