@@ -1,5 +1,6 @@
 // firebase stuff
 import { initializeApp } from "firebase/app";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDwyE3RpdPyXTuyQmr_mR-KIcjXSGnBZ9w",
@@ -12,6 +13,31 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const docRef = doc(db, "myJivotno", "equipment");
+const docSnap = await getDoc(docRef);
+let dbData = docSnap.data();
+console.log(dbData.hat);
+
+// if (docSnap.exists()) {
+//     console.log("Document data: ", docSnap.data());
+// }
+// else {
+//     console.log("No such document.");
+// }
+
+// stuff for init loading
+// item lists
+let hatsInvetory = ["0" ,"../resources/waredrobe/clothing/hats/tempBlueHat.png"];
+let shirtsInvetory = [];
+let pantsInvetory = [];
+let shoesInvetory = [];
+let backgroundInvetory = [];
+
+const hatSlot = document.getElementById("hat-slot");
+hatSlot.src = hatsInvetory[dbData.hat];
+
 
 // stuff for stats
 const walkMeter = document.getElementById("walk-meter");
