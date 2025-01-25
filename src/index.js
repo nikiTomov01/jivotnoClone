@@ -15,10 +15,15 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const docRef = doc(db, "myJivotno", "equipment");
-const docSnap = await getDoc(docRef);
-let dbData = docSnap.data();
-console.log(dbData.hat);
+const docRefEquipment = doc(db, "myJivotno", "equipment");
+const docSnapEquipment = await getDoc(docRefEquipment);
+let dbDataEquipment = docSnapEquipment.data();
+
+const docRefInventory = doc(db, "myJivotno", "inventory");
+const docSnapInventory = await getDoc(docRefInventory);
+let dbDataInventory = docSnapInventory.data();
+console.log("equipment: ", dbDataEquipment.hat);
+console.log("inventory: ", dbDataInventory.hats);
 
 // if (docSnap.exists()) {
 //     console.log("Document data: ", docSnap.data());
@@ -29,14 +34,14 @@ console.log(dbData.hat);
 
 // stuff for init loading
 // item lists
-let hatsInvetory = ["0" ,"../resources/waredrobe/clothing/hats/tempBlueHat.png"];
-let shirtsInvetory = [];
-let pantsInvetory = [];
-let shoesInvetory = [];
-let backgroundInvetory = [];
+let hatsInvetory = dbDataInventory.hats;
+let shirtsInvetory = dbDataInventory.shirts;
+let pantsInvetory = dbDataInventory.pants;
+let shoesInvetory = dbDataInventory.shoes;
+let backgroundInvetory = dbDataInventory.backgrounds;
 
 const hatSlot = document.getElementById("hat-slot");
-hatSlot.src = hatsInvetory[dbData.hat];
+hatSlot.src = hatsInvetory[dbDataEquipment.hat];
 
 
 // stuff for stats

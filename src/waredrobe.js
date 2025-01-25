@@ -14,9 +14,13 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-const docRef = doc(db, "myJivotno", "equipment");
-const docSnap = await getDoc(docRef);
-let dbData = docSnap.data();
+const docRefEquipment = doc(db, "myJivotno", "equipment");
+const docSnapEquipment = await getDoc(docRefEquipment);
+let dbDataEquipment = docSnapEquipment.data();
+
+const docRefInventory = doc(db, "myJivotno", "inventory");
+const docSnapInventory = await getDoc(docRefInventory);
+let dbDataInventory = docSnapInventory.data();
 
 
 
@@ -32,18 +36,17 @@ const shoesBtn = document.getElementById("shoes-btn");
 const bgBtn = document.getElementById("backgrounds-btn");
 
 // item lists
-let hatsInvetory = ["", "../resources/waredrobe/clothing/hats/tempBlueHat.png"];
-let shirtsInvetory = [];
-let pantsInvetory = [];
-let shoesInvetory = [];
-let backgroundInvetory = [];
+let hatsInvetory = dbDataInventory.hats;
+let shirtsInvetory = dbDataInventory.shirts;
+let pantsInvetory = dbDataInventory.pants;
+let shoesInvetory = dbDataInventory.shoes;
+let backgroundInvetory = dbDataInventory.backgrounds;
 
 // curr slots
 const hatSlot = document.getElementById("hat-slot");
-let currHat = "";
 
 // stuff for init loading
-hatSlot.src = hatsInvetory[dbData.hat];
+hatSlot.src = hatsInvetory[dbDataEquipment.hat];
 
 hatsBtn.addEventListener("click", (e) => {
     if (e.target.classList[0] === "selected-wardrobe") {
@@ -71,13 +74,13 @@ function populateWardrobe(inventory) {
 async function equipItem(item) {
     if (hatSlot.getAttribute("src") !== item.getAttribute("src")) {
         hatSlot.src = item.src;
-        await updateDoc(docRef, {
+        await updateDoc(docRefEquipment, {
             hat: 1
         });
     }
     else {
         hatSlot.src = "";
-        await updateDoc(docRef, {
+        await updateDoc(docRefEquipment, {
             hat: 0
         });
     }
