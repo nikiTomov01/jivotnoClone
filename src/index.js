@@ -1,3 +1,18 @@
+// firebase stuff
+import { initializeApp } from "firebase/app";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDwyE3RpdPyXTuyQmr_mR-KIcjXSGnBZ9w",
+    authDomain: "jivotnoclone.firebaseapp.com",
+    projectId: "jivotnoclone",
+    storageBucket: "jivotnoclone.firebasestorage.app",
+    messagingSenderId: "842665722245",
+    appId: "1:842665722245:web:5fb34666dc58e1b6c8c4ec",
+    measurementId: "G-DYP8FBCXFS"
+};
+
+const app = initializeApp(firebaseConfig);
+
 // stuff for stats
 const walkMeter = document.getElementById("walk-meter");
 const hungerMeter = document.getElementById("food-meter");
