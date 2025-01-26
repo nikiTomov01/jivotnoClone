@@ -22,12 +22,6 @@ const docRefInventory = doc(db, "myJivotno", "inventory");
 const docSnapInventory = await getDoc(docRefInventory);
 let dbDataInventory = docSnapInventory.data();
 
-//init loading stuff
-const loadingScreen = document.getElementById("loading-screen");
-loadingScreen.addEventListener("animationend", () => {
-    loadingScreen.remove();
-})
-
 
 
 //waredrobe stuff
