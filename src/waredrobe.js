@@ -23,7 +23,6 @@ const docSnapInventory = await getDoc(docRefInventory);
 let dbDataInventory = docSnapInventory.data();
 
 
-
 //waredrobe stuff
 
 const waredrobe = document.getElementById("waredrobe-item-list");

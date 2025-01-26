@@ -22,17 +22,19 @@ let dbDataEquipment = docSnapEquipment.data();
 const docRefInventory = doc(db, "myJivotno", "inventory");
 const docSnapInventory = await getDoc(docRefInventory);
 let dbDataInventory = docSnapInventory.data();
+
+const docRefStats = doc(db, "myJivotno", "stats");
+const docSnapStats = await getDoc(docRefStats);
+let dbDataStats = docSnapStats.data();
 console.log("equipment: ", dbDataEquipment.hat);
 console.log("inventory: ", dbDataInventory.hats);
-
-// if (docSnap.exists()) {
-//     console.log("Document data: ", docSnap.data());
-// }
-// else {
-//     console.log("No such document.");
-// }
+console.log("stats int: ", dbDataStats.intt);
 
 // stuff for init loading
+const inttValue = document.getElementById("int-value");
+inttValue.innerHTML = dbDataStats.intt;
+
+//loading screen commented to save time when working
 // const loadingScreen = document.getElementById("loading-screen");
 // loadingScreen.addEventListener("animationend", () => {
 //     loadingScreen.remove

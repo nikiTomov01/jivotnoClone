@@ -381,13 +381,16 @@
 }
 
 #study-list {
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .study-item {
     background-image: linear-gradient(to bottom, rgb(96, 255, 194) , rgb(67, 180, 137));
-    width: 50%;
+    width: 80%;
     padding: 20px;
+    margin: 10px;
     border: 1px solid #c0c0c0;
     display: flex;
     justify-content: center;
