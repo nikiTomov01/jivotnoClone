@@ -7,6 +7,34 @@
 
 /* default classes for alot of elements */
 
+#loading-screen {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    font-size: 3rem;
+    color: white;
+    background-color: rgb(40, 110, 121);
+    z-index: 10;
+    top: 0;
+    border-radius: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation-name: loadingScreen;
+    animation-iteration-count: 1;
+    animation-timing-function: step-end;
+    animation-duration: 1s;
+}
+
+@keyframes loadingScreen {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
 /* navigation panel */
 
 #nav-panel-container {
@@ -229,7 +257,7 @@
 .fill-stat {
     display: block;
     height: 25px;
-    width: 50%;
+    width: 100%;
     background-color: orange;
     border-radius: 5px;
     transition: 0.45s;

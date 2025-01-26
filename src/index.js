@@ -33,6 +33,11 @@ console.log("inventory: ", dbDataInventory.hats);
 // }
 
 // stuff for init loading
+const loadingScreen = document.getElementById("loading-screen");
+loadingScreen.addEventListener("animationend", () => {
+    loadingScreen.remove();
+})
+
 // item lists
 let hatsInvetory = dbDataInventory.hats;
 let shirtsInvetory = dbDataInventory.shirts;
