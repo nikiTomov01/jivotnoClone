@@ -14,9 +14,21 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+const docRefEquipment = doc(db, "myJivotno", "equipment");
+const docSnapEquipment = await getDoc(docRefEquipment);
+let dbDataEquipment = docSnapEquipment.data();
+
+const docRefInventory = doc(db, "myJivotno", "inventory");
+const docSnapInventory = await getDoc(docRefInventory);
+let dbDataInventory = docSnapInventory.data();
+
 const docRefStats = doc(db, "myJivotno", "stats");
 let docSnapStats = await getDoc(docRefStats);
 let dbDataStats = docSnapStats.data();
+
+//load necessities
+const hatSlot = document.getElementById("hat-slot");
+hatSlot.src = dbDataInventory.hats[dbDataEquipment.hat];
 
 // library mechanics
 const readBtn = document.getElementById("read-btn");
