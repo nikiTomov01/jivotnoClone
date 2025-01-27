@@ -1,34 +1,7 @@
-// firebase stuff
-import { initializeApp } from "firebase/app";
-import { getFirestore, doc, getDoc } from "firebase/firestore";
-
-const firebaseConfig = {
-    apiKey: "AIzaSyDwyE3RpdPyXTuyQmr_mR-KIcjXSGnBZ9w",
-    authDomain: "jivotnoclone.firebaseapp.com",
-    projectId: "jivotnoclone",
-    storageBucket: "jivotnoclone.firebasestorage.app",
-    messagingSenderId: "842665722245",
-    appId: "1:842665722245:web:5fb34666dc58e1b6c8c4ec",
-    measurementId: "G-DYP8FBCXFS"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-const docRefEquipment = doc(db, "myJivotno", "equipment");
-const docSnapEquipment = await getDoc(docRefEquipment);
-let dbDataEquipment = docSnapEquipment.data();
-
-const docRefInventory = doc(db, "myJivotno", "inventory");
-const docSnapInventory = await getDoc(docRefInventory);
-let dbDataInventory = docSnapInventory.data();
-
-const docRefStats = doc(db, "myJivotno", "stats");
-const docSnapStats = await getDoc(docRefStats);
-let dbDataStats = docSnapStats.data();
-console.log("equipment: ", dbDataEquipment.hat);
-console.log("inventory: ", dbDataInventory.hats);
-console.log("stats int: ", dbDataStats.intt);
+import { getEquipmentSnap, getInventorySnap, getStatsSnap } from "./firebase-config";
+let dbDataEquipment = await getEquipmentSnap();
+let dbDataInventory = await getInventorySnap();
+let dbDataStats = await getStatsSnap();
 
 // stuff for init loading
 const inttValue = document.getElementById("int-value");
@@ -49,7 +22,6 @@ let backgroundInvetory = dbDataInventory.backgrounds;
 
 const hatSlot = document.getElementById("hat-slot");
 hatSlot.src = hatsInvetory[dbDataEquipment.hat];
-
 
 // stuff for stats
 const walkMeter = document.getElementById("walk-meter");
