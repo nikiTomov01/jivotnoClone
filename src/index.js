@@ -35,6 +35,9 @@ const hungerBtn = document.getElementById("food-btn");
 const showerBtn = document.getElementById("shower-btn");
 const hydrationBtn = document.getElementById("hydration-btn");
 
+const moodMsg = document.getElementById("mood-msg");
+const maxMood = 400;
+
 let currWalk = dbDataStats.walk;
 let currHunger = dbDataStats.food;
 let currShower = dbDataStats.bath;
@@ -46,6 +49,7 @@ window.onload = () => {
 
 setInterval(() => {
     dropStats();
+    setMood();
 }, 1000)
 
 async function dropStats() {
@@ -129,6 +133,22 @@ let addStat = async (e) => {
                 water: 100
             })
         }
+    }
+}
+
+function setMood() {
+    let currMood = currWalk + currHunger + currHydration + currShower;
+    if (currMood >= maxMood - 50) {
+        moodMsg.innerHTML = "Awesome";
+    }
+    else if (currMood >= 300 && currMood < maxMood - 50) {
+        moodMsg.innerHTML = "Super";
+    }
+    else if (currMood >= 200 && currMood < 300) {
+        moodMsg.innerHTML = "Great";
+    }
+    else {
+        moodMsg.innerHTML = "Give attention pls.";
     }
 }
 
