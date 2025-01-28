@@ -59,13 +59,6 @@ async function dropStats() {
     currShower--;
     currHydration--;
 
-    await updateDoc(docRefStats, {
-        walk: currWalk,
-        food: currHunger,
-        bath: currShower,
-        water: currHydration
-    })
-
     if (currWalk < 0) {
         currWalk = 0;
     }
@@ -78,6 +71,13 @@ async function dropStats() {
     if (currHydration < 0) {
         currHydration = 0;
     }
+
+    await updateDoc(docRefStats, {
+        walk: currWalk,
+        food: currHunger,
+        bath: currShower,
+        water: currHydration
+    })
 }
 
 let addStat = async (e) => {
