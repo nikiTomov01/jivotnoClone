@@ -1,4 +1,5 @@
-import { getEquipmentSnap, getInventorySnap, getStatsSnap } from "./firebase-config";
+import { updateDoc } from "firebase/firestore";
+import { docRefStats, getEquipmentSnap, getInventorySnap, getStatsSnap } from "./firebase-config";
 let dbDataEquipment = await getEquipmentSnap();
 let dbDataInventory = await getInventorySnap();
 let dbDataStats = await getStatsSnap();
@@ -34,10 +35,10 @@ const hungerBtn = document.getElementById("food-btn");
 const showerBtn = document.getElementById("shower-btn");
 const hydrationBtn = document.getElementById("hydration-btn");
 
-let currWalk = 100;
-let currHunger = 100;
-let currShower = 100;
-let currHydration = 100;
+let currWalk = dbDataStats.walk;
+let currHunger = dbDataStats.food;
+let currShower = dbDataStats.bath;
+let currHydration = dbDataStats.water;
 
 window.onload = () => {
     dropStats();
@@ -47,7 +48,7 @@ setInterval(() => {
     dropStats();
 }, 1000)
 
-function dropStats() {
+async function dropStats() {
     walkMeter.style.width = `${currWalk}%`;
     hungerMeter.style.width = `${currHunger}%`;
     showerMeter.style.width = `${currShower}%`;
@@ -57,6 +58,13 @@ function dropStats() {
     currHunger--;
     currShower--;
     currHydration--;
+
+    await updateDoc(docRefStats, {
+        walk: currWalk,
+        food: currHunger,
+        bath: currShower,
+        water: currHydration
+    })
 
     if (currWalk < 0) {
         currWalk = 0;
@@ -72,30 +80,54 @@ function dropStats() {
     }
 }
 
-let addStat = (e) => {
+let addStat = async (e) => {
     let pressedBtn = e.target;
     if (pressedBtn.id === "walk-btn") {
         currWalk += 10;
+        await updateDoc(docRefStats, {
+            walk: currWalk
+        })
         if (currWalk > 100) {
             currWalk = 100;
+            await updateDoc(docRefStats, {
+                walk: 100
+            })
         }
     }
     else if (pressedBtn.id === "food-btn") {
         currHunger += 10;
+        await updateDoc(docRefStats, {
+            food: currHunger
+        })
         if (currHunger > 100) {
             currHunger = 100;
+            await updateDoc(docRefStats, {
+                food: 100
+            })
         }
     }
     else if (pressedBtn.id === "shower-btn") {
         currShower += 10;
+        await updateDoc(docRefStats, {
+            bath: currShower
+        })
         if (currShower > 100) {
             currShower = 100;
+            await updateDoc(docRefStats, {
+                bath: 100
+            })
         }
     }
     else if (pressedBtn.id === "hydration-btn") {
         currHydration += 10;
+        await updateDoc(docRefStats, {
+            water: currHydration
+        })
         if (currHydration > 100) {
             currHydration = 100;
+            await updateDoc(docRefStats, {
+                water: 100
+            })
         }
     }
 }

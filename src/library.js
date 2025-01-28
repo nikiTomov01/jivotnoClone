@@ -1,3 +1,4 @@
+import { updateDoc } from "firebase/firestore";
 import { getEquipmentSnap, getInventorySnap, getStatsSnap, docRefStats } from "./firebase-config";
 
 let dbDataEquipment = await getEquipmentSnap();
