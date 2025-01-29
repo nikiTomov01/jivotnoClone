@@ -21,6 +21,7 @@ let shirtsInvetory = dbDataInventory.shirts;
 let pantsInvetory = dbDataInventory.pants;
 let shoesInvetory = dbDataInventory.shoes;
 let backgroundInvetory = dbDataInventory.backgrounds;
+console.log(hatsInvetory);
 
 // curr slots
 const hatSlot = document.getElementById("hat-slot");

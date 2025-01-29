@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, doc, getDoc, updateDoc } from "firebase/firestore";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDwyE3RpdPyXTuyQmr_mR-KIcjXSGnBZ9w",
@@ -32,5 +32,18 @@ const getStatsSnap = async () => {
     return docSnapStats.data();
 };
 
-export { app, db, getEquipmentSnap, getInventorySnap, getStatsSnap };
+const docRefCurrency = doc(db, "myJivotno", "currency");
+const getCurrencySnap = async () => {
+    const docCurrencySnap = await getDoc(docRefCurrency);
+    return docCurrencySnap.data();
+}
+
+const docRefMonsters = doc(db, "myJivotno", "monsters");
+const getMonstersSnap = async () => {
+    const docMonstersSnap = await getDoc(docRefMonsters);
+    return docMonstersSnap.data();
+};
+
+export { app, db };
+export { getEquipmentSnap, getInventorySnap, getStatsSnap, getCurrencySnap, getMonstersSnap };
 export { docRefEquipment, docRefInventory, docRefStats };
