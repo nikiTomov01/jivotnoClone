@@ -26,6 +26,7 @@ let start = async function startDuel() {
         if (currTurn === "character") {
             await playerTurn();
             monsterHp -= 10;
+            console.log("SOMETHING HAPPEND PLAYER TURN")
             currTurn = "monster";
         }
         else {
