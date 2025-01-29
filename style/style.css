@@ -411,6 +411,19 @@
     justify-content: space-between;
 }
 
+#health-bars {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.health-bar {
+    padding: 10px;
+    background-color: white;
+    margin: 10px;
+    font-size: 1.2rem;
+}
+
 #duel-log-tab {
     width: 19%;
     height: 700px;
@@ -477,7 +490,8 @@ overflow-y: scroll;
 
 #duel-tab #character {
     top: 400px;
-    left: 15%;
+    left: 10%;
+    z-index: 1;
 }
 
 #duel-tab #character #hat-slot {
@@ -496,13 +510,13 @@ overflow-y: scroll;
 
 @keyframes playerAttack {
     0% {
-        left: 15%;
+        left: 10%;
     }
     50% {
         left: 70%;
     }
     100% {
-        left: 15%;
+        left: 10%;
     }
 }
 
@@ -525,4 +539,3 @@ overflow-y: scroll;
 .monster-attack {
     animation: monsterAttack 0.9s ease-in-out forwards;
 }
-

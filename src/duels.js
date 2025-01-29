@@ -8,6 +8,9 @@ let currLuck = dbDataCurrency.luck;
 let dbDataMonsters = await getMonstersSnap();
 let monsterList = dbDataMonsters.monsterList;
 
+//log stuff
+const logBoard = document.getElementById("duel-text-container");
+
 // setting up monster
 let monsterHp = 50;
 let monsterDmg = 5;
@@ -15,42 +18,79 @@ let monsterSpeed = 5;
 
 //setting up player
 const player = document.getElementById("character");
+const monster = document.getElementById("monster");
 let playerHp = 100;
 let playerDmg = 10;
 let playerSpeed = 5;
 
 let currTurn = "character";
+let turnCount = 0;
 
 let start = async function startDuel() {
+    turnCount = 0;
     while (monsterHp > 0) {
         if (currTurn === "character") {
             await playerTurn();
-            monsterHp -= 10;
-            console.log("SOMETHING HAPPEND PLAYER TURN")
+            turnCount++;
             currTurn = "monster";
         }
         else {
             await monsterTurn();
+            turnCount++;
             currTurn = "character";
         }
     }
 }
 
-// ui stuff
+// ui stuff - start btn
 const duelBtn = document.getElementById("duel-btn");
 duelBtn.addEventListener("click", start);
+
+const playerHealthBar = document.getElementById("character-health");
+const monsterHealthBar = document.getElementById("monster-health");
 
 // players turn 
 async function playerTurn() {
     console.log("Players turn");
     await playAnimation("character");
+    monsterHp -= playerDmg;
+    if (monsterHp <= 0) {
+        monster.remove();
+    }
+    monsterHealthBar.innerHTML = `Monster HP: ${monsterHp}`;
+    addLog("character");
     await delay(500);
 }
 
 async function monsterTurn() {
     console.log("monster turn");
     await playAnimation("monster");
+    playerHp -= monsterDmg;
+    playerHealthBar.innerHTML = `Character HP: ${playerHp}`;
+    addLog("monster");
     await delay(500);
+}
+
+async function addLog(character) {
+    let logMsg = document.createElement("p");
+    logMsg.classList.add("log-text");
+    if (character === "character") {
+        logMsg.innerHTML = 
+        `
+        Turn: ${turnCount} - ${character} <br>
+        Dealt: ${playerDmg} to monster. <br>
+        Took: 0 damage.
+        `;
+    }
+    else {
+        logMsg.innerHTML = 
+        `
+        Turn: ${turnCount} - ${character} <br>
+        Dealt: ${monsterDmg} to player. <br>
+        Took: 0 damage.
+        `;
+    }
+    logBoard.appendChild(logMsg);
 }
 
 // play animation
