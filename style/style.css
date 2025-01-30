@@ -476,6 +476,7 @@ overflow-y: scroll;
 
 #duel-btn:hover {
     cursor: pointer;
+    background-image: linear-gradient(to bottom, rgb(155, 240, 255) , rgb(40, 110, 121));
 }
 
 #duel-tab {
