@@ -7,6 +7,7 @@ let currLuck = dbDataCurrency.luck;
 
 let dbDataMonsters = await getMonstersSnap();
 let monsterList = dbDataMonsters.monsterList;
+let monstersAmount = monsterList.length;
 
 //log stuff
 const logBoard = document.getElementById("duel-text-container");
@@ -28,6 +29,7 @@ let turnCount = 0;
 
 let start = async function startDuel() {
     clearDuelLog();
+    setNewMonster();
     turnCount = 0;
     while (monsterHp > 0) {
         if (currTurn === "character") {
@@ -44,6 +46,7 @@ let start = async function startDuel() {
 }
 
 // ui stuff - start btn
+const duelTab = document.getElementById("duel-tab");
 const duelBtn = document.getElementById("duel-btn");
 duelBtn.addEventListener("click", start);
 
@@ -57,6 +60,19 @@ function clearDuelLog() {
         e.remove();
         e = logBoard.lastChild;
     }
+}
+
+function setNewMonster() {
+    let newMonster = document.createElement("div");
+    newMonster.id = "monster";
+
+    let monsterImg = document.createElement("img");
+    let monsterType = Math.floor(Math.random() * (monstersAmount));
+    monsterImg.src = monsterList[monsterType];
+    newMonster.appendChild(monsterImg);
+
+    duelTab.appendChild(newMonster);
+    return 0;
 }
 
 // players turn 
