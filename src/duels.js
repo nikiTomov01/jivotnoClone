@@ -27,6 +27,7 @@ let currTurn = "character";
 let turnCount = 0;
 
 let start = async function startDuel() {
+    clearDuelLog();
     turnCount = 0;
     while (monsterHp > 0) {
         if (currTurn === "character") {
@@ -48,6 +49,15 @@ duelBtn.addEventListener("click", start);
 
 const playerHealthBar = document.getElementById("character-health");
 const monsterHealthBar = document.getElementById("monster-health");
+
+// clear duel log 
+function clearDuelLog() {
+    let e = logBoard.lastChild;
+    while(e) {
+        e.remove();
+        e = logBoard.lastChild;
+    }
+}
 
 // players turn 
 async function playerTurn() {
