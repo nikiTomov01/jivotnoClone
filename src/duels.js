@@ -1,5 +1,8 @@
 import { updateDoc } from "firebase/firestore";
 import { getCurrencySnap, getMonstersSnap, docRefCurrency } from "./firebase-config";
+import { headerInit } from "./statLoading";
+
+headerInit();
 
 let dbDataCurrency = await getCurrencySnap();
 let currGold = dbDataCurrency.gold;
@@ -71,7 +74,7 @@ function setNewMonster() {
     newMonster.appendChild(monsterImg);
 
     duelTab.appendChild(newMonster);
-    monsterHp = 20;
+    monsterHp = 50;
     monsterHealthBar.innerHTML = `Monster HP: ${monsterHp}`;
     return 0;
 }

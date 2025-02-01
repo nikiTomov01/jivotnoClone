@@ -1,12 +1,14 @@
 import { updateDoc } from "firebase/firestore";
-import { docRefStats, getEquipmentSnap, getInventorySnap, getStatsSnap } from "./firebase-config";
+import { docRefStats, getEquipmentSnap, getInventorySnap, getStatsSnap, getCurrencySnap } from "./firebase-config";
+import { indexInitCurr } from "./statLoading";
+
 let dbDataEquipment = await getEquipmentSnap();
 let dbDataInventory = await getInventorySnap();
 let dbDataStats = await getStatsSnap();
+let dbDataCurrency = await getCurrencySnap();
 
 // stuff for init loading
-const inttValue = document.getElementById("int-value");
-inttValue.innerHTML = dbDataStats.intt;
+indexInitCurr();
 
 //loading screen commented to save time when working
 // const loadingScreen = document.getElementById("loading-screen");
