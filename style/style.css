@@ -507,6 +507,7 @@ overflow-y: scroll;
 
 #monster img {
     width: 250px;
+    height: 200px;
 }
 
 @keyframes playerAttack {

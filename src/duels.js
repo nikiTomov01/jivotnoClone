@@ -19,7 +19,6 @@ let monsterSpeed = 5;
 
 //setting up player
 const player = document.getElementById("character");
-const monster = document.getElementById("monster");
 let playerHp = 100;
 let playerDmg = 10;
 let playerSpeed = 5;
@@ -72,6 +71,8 @@ function setNewMonster() {
     newMonster.appendChild(monsterImg);
 
     duelTab.appendChild(newMonster);
+    monsterHp = 50;
+    monsterHealthBar.innerHTML = `Monster HP: ${monsterHp}`;
     return 0;
 }
 
@@ -80,10 +81,10 @@ async function playerTurn() {
     console.log("Players turn");
     await playAnimation("character");
     monsterHp -= playerDmg;
-    if (monsterHp <= 0) {
-        monster.remove();
-    }
     monsterHealthBar.innerHTML = `Monster HP: ${monsterHp}`;
+    if (monsterHp <= 0) {
+        document.getElementById("monster").remove();
+    }
     addLog("character");
     await delay(500);
 }
