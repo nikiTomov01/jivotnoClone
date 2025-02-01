@@ -55,7 +55,7 @@ function populateWardrobe(inventory) {
     }
 }
 
-async function equipItem(item) {
+async function equipItem(item) { // this needs to be fixed drastically because it wont work at all.
     if (hatSlot.getAttribute("src") !== item.getAttribute("src")) {
         hatSlot.src = item.src;
         await updateDoc(docRefEquipment, {

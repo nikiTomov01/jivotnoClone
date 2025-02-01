@@ -3,7 +3,7 @@ import { getStatsSnap, getCurrencySnap } from "./firebase-config";
 let dbDataStats = await getStatsSnap();
 let dbDataCurrency = await getCurrencySnap();
 
-const indexInitCurr = () => {
+const indexInit = () => {
     headerInit();
 
     const inttValue = document.getElementById("int-value");
@@ -20,4 +20,4 @@ const headerInit = () => {
     minisValue.innerHTML = `Minis: ${dbDataCurrency.minis}`;
 }
 
-export {indexInitCurr, headerInit};
+export {indexInit, headerInit};
