@@ -46,4 +46,4 @@ const getMonstersSnap = async () => {
 
 export { app, db };
 export { getEquipmentSnap, getInventorySnap, getStatsSnap, getCurrencySnap, getMonstersSnap };
-export { docRefEquipment, docRefInventory, docRefStats };
+export { docRefEquipment, docRefInventory, docRefStats, docRefCurrency, docRefMonsters };

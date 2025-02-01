@@ -1,5 +1,5 @@
 import { updateDoc } from "firebase/firestore";
-import { getCurrencySnap, getMonstersSnap } from "./firebase-config";
+import { getCurrencySnap, getMonstersSnap, docRefCurrency } from "./firebase-config";
 
 let dbDataCurrency = await getCurrencySnap();
 let currGold = dbDataCurrency.gold;
@@ -71,7 +71,7 @@ function setNewMonster() {
     newMonster.appendChild(monsterImg);
 
     duelTab.appendChild(newMonster);
-    monsterHp = 50;
+    monsterHp = 20;
     monsterHealthBar.innerHTML = `Monster HP: ${monsterHp}`;
     return 0;
 }
@@ -84,6 +84,10 @@ async function playerTurn() {
     monsterHealthBar.innerHTML = `Monster HP: ${monsterHp}`;
     if (monsterHp <= 0) {
         document.getElementById("monster").remove();
+        dropGold();
+        dbDataCurrency = await getCurrencySnap();
+        currGold = dbDataCurrency.gold;
+        console.log(currGold);
     }
     addLog("character");
     await delay(500);
@@ -96,6 +100,13 @@ async function monsterTurn() {
     playerHealthBar.innerHTML = `Character HP: ${playerHp}`;
     addLog("monster");
     await delay(500);
+}
+
+async function dropGold() {
+    let droppedGold = Math.floor(Math.random() * currLuck + 1);
+    await updateDoc(docRefCurrency, {
+        gold: currGold + droppedGold
+    });
 }
 
 async function addLog(character) {
